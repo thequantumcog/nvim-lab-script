@@ -4,6 +4,9 @@ set -e
 mkdir -p "$HOME/.local/bin"
 cd /tmp
 
+sudo apt update
+sudo apt install -y git kitty wl-clipboard curl
+
 wget -q https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 tar xzf nvim-linux-x86_64.tar.gz
 
@@ -19,8 +22,6 @@ rm -rf "$HOME/.config/nvim"
 git clone https://github.com/nvim-lua/kickstart.nvim.git \
   "$HOME/.config/nvim" --depth=1
 
-sudo apt update
-sudo apt install -y kitty wl-clipboard curl
 
 # Swap Caps Lock and Escape (GNOME / Wayland safe)
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
