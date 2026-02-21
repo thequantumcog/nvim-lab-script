@@ -33,5 +33,20 @@ sed -i "/'stylua',/ {x;d;}; x" ~/.config/nvim/init.lua
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 33
 export PATH="$HOME/.local/bin:$PATH"
+
+
+
+
+mkdir -p "$HOME/.local/share/fonts"
+cd "$HOME/.local/share/fonts"
+
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz
+tar -xJf FiraCode.tar.xz
+rm FiraCode.tar.xz
+
+fc-cache -vf
+cd -
+
+
 echo "Done. Restart terminal or log out for key swap to fully apply."
 
