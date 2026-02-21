@@ -29,6 +29,8 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
 sed -i 's/^\s*--\s*clangd = {}/  clangd = {}/' ~/.config/nvim/init.lua
 sed -i "/'stylua',/a\        'clangd'," ~/.config/nvim/init.lua
 sed -i "/'stylua',/ {x;d;}; x" ~/.config/nvim/init.lua
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 33
 export PATH="$HOME/.local/bin:$PATH"
 echo "Done. Restart terminal or log out for key swap to fully apply."
 
