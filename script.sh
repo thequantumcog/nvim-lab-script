@@ -19,7 +19,7 @@ grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bashrc || \
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 
 rm -rf "$HOME/.config/nvim"
-git clone https://github.com/nvim-lua/kickstart.nvim.git \
+git clone https://github.com/thequantumcog/nvim-lab-script.git \
   "$HOME/.config/nvim" --depth=1
 
 
@@ -27,13 +27,12 @@ git clone https://github.com/nvim-lua/kickstart.nvim.git \
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
 
 
-sed -i 's/^\s*--\s*clangd = {}/  clangd = {}/' ~/.config/nvim/init.lua
-sed -i "/'stylua',/a\        'clangd'," ~/.config/nvim/init.lua
-sed -i "/'stylua',/ {x;d;}; x" ~/.config/nvim/init.lua
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 33
 export PATH="$HOME/.local/bin:$PATH"
 
+mkdir -p ~/.config/kitty/
+mv ~/.config/nvim/kitty.conf ~/.config/kitty/
 
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts"
@@ -45,8 +44,6 @@ rm FiraCode.tar.xz
 fc-cache -vf
 cd -
 
-mkdir -p ~/.config/kitty
-curl -L https://raw.githubusercontent.com/thequantumcog/nvim-lab-script/refs/heads/main/kitty.conf -o ~/.config/kitty/kitty.conf
 
 echo "Done. Restart terminal or log out for key swap to fully apply."
 
