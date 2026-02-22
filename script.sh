@@ -35,8 +35,6 @@ gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 33
 export PATH="$HOME/.local/bin:$PATH"
 
 
-
-
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts"
 
@@ -47,6 +45,8 @@ rm FiraCode.tar.xz
 fc-cache -vf
 cd -
 
+mkdir -p ~/.config/kitty
+curl -L https://raw.githubusercontent.com/thequantumcog/nvim-lab-script/refs/heads/main/kitty.conf -o ~/.config/kitty/kitty.conf
 
 echo "Done. Restart terminal or log out for key swap to fully apply."
 
