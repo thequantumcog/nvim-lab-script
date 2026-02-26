@@ -1,0 +1,38 @@
+snippet init "C Skeleton" b
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+	${1}
+
+	return 0;
+}
+endsnippet
+
+snippet uinit "C Skeleton" b
+#include <stdlib.h>
+#include <stdio.h>
+#incude <unistd.h>
+
+int main() {
+	${1}
+
+	return 0;
+}
+endsnippet
+
+
+snippet uainit "C Skeleton" b
+#include <stdlib.h>
+#include <stdio.h>
+#incude <unistd.h>
+#include <fnctl.h>
+#include <sys/wait.h>
+#include <sys/mman.h>
+
+int main() {
+	${1}
+
+	return 0;
+}
+endsnippet
