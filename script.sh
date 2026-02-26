@@ -4,8 +4,7 @@ set -e
 mkdir -p "$HOME/.local/bin"
 cd /tmp
 
-sudo apt update
-sudo apt install -y git kitty wl-clipboard curl ripgrep
+sudo apt install -y git kitty wl-clipboard ripgrep
 
 wget -q https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 tar xzf nvim-linux-x86_64.tar.gz
