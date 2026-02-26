@@ -6,7 +6,7 @@ cd /tmp
 
 sudo apt install -y git kitty wl-clipboard ripgrep
 
-wget -q https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+curl -L -o https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 tar xzf nvim-linux-x86_64.tar.gz
 
 rm -rf "$HOME/.local/nvim"
@@ -36,7 +36,7 @@ mv ~/.config/nvim/kitty.conf ~/.config/kitty/
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts"
 
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz
+curl -L -o https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz
 tar -xJf FiraCode.tar.xz
 rm FiraCode.tar.xz
 
