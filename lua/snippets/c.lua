@@ -63,4 +63,17 @@ return {
 			"} while (0)",
 		}),
 	}),
+	s("cond_fork", {
+		t({ "pid_t " }),
+		i(1, "p"),
+		t({ " = fork();", "if (" }),
+		rep(1),
+		t({ " == 0) {", "    " }),
+		i(2),
+		t({ "", "}", "else if (" }),
+		rep(1),
+		t({ " > 0) {", "    " }),
+		i(3),
+		t({ "", "}", "else {", '    perror("fork");', "    exit(EXIT_FAILURE);", "}" }),
+	}),
 }
