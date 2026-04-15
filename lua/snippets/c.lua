@@ -73,9 +73,47 @@ return {
 		i(3), -- Your third jump (inside the loop)
 		t({ "", "}" }),
 	}),
+	s("pjoin", {
+		t("for (int "),
+		i(1, "i"), -- First jump: The loop variable
+		t(" = 0; "),
+		rep(1), -- Mirrors "i"
+		t(" < "),
+		i(2, "2"), -- Second jump: The limit (you can change 2 to num_threads, etc.)
+		t("; "),
+		rep(1), -- Mirrors "i"
+		t("++) {"),
+		t({ "", "    pthread_join(" }),
+		i(3, "threads"), -- Third jump: The array name
+		t("["),
+		rep(1), -- Mirrors "i" inside the array brackets
+		t("], NULL);"),
+		t({ "", "}" }),
+	}),
+	s("pcreate", {
+		t("for (int "),
+		i(1, "i"), -- First jump: The loop variable
+		t(" = 0; "),
+		rep(1), -- Mirrors "i"
+		t(" < "),
+		i(2, "2"), -- Second jump: The limit
+		t("; "),
+		rep(1), -- Mirrors "i"
+		t("++) {"),
+		t({ "", "    pthread_create(&" }),
+		i(3, "threads"), -- Third jump: The array name (no need to type &)
+		t("["),
+		rep(1), -- Mirrors "i" inside the array brackets
+		t("], NULL, "),
+		i(4, "start_routine"), -- Fourth jump: The function the thread will run
+		t(", "),
+		i(5, "NULL"), -- Fifth jump: The argument passed to that function
+		t(");"),
+		t({ "", "}" }),
+	}),
 	s("check_sys", {
 		t("#define CHECK_SYSCALL("),
-		i(1, "r_c"),
+		i(1, "fd"),
 		t(", "),
 		i(2, "msg"),
 		t({
