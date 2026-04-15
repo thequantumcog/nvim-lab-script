@@ -39,6 +39,26 @@ return {
 			"}",
 		}),
 	}),
+
+	s("pinit", {
+		t({
+			"#include <stdio.h>",
+			"#include <stdlib.h>",
+			"#include <unistd.h>",
+			"#include <sys/wait.h>",
+			"#include <fcntl.h>",
+			"#include <pthread.h>",
+			"",
+			"int main() {",
+			"    ",
+		}),
+		i(1),
+		t({
+			"",
+			"    return 0;",
+			"}",
+		}),
+	}),
 	s("fori", {
 		t("for (int "),
 		i(1, "i"), -- This is the actual insert node where you type
