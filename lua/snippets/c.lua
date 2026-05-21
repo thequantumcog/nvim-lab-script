@@ -111,18 +111,20 @@ return {
 		t(");"),
 		t({ "", "}" }),
 	}),
-	s("check_sys", {
-		t("#define CHECK_SYSCALL("),
-		i(1, "fd"),
+	s("check_cond", {
+		t("#define "),
+		i(1, "CHECK_COND"), -- Lets you name the macro (e.g., CHECK_NULL, CHECK_ERR)
+		t("("),
+		i(2, "cond"), -- The generic condition parameter
 		t(", "),
-		i(2, "msg"),
+		i(3, "msg"), -- The message parameter
 		t({
 			") do { \\",
-			"    if ((",
+			"    if (",
 		}),
-		rep(1),
-		t({ ") < 0) { \\", "        perror(" }),
-		rep(2),
+		rep(2), -- Repeats the condition variable
+		t({ ") { \\", "        perror(" }),
+		rep(3), -- Repeats the message variable
 		t({ "); \\", "        exit(EXIT_FAILURE); \\", "    } \\", "} while (0)" }),
 	}),
 	s("cond_fork", {
