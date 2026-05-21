@@ -45,4 +45,5 @@ cd -
 
 
 echo "Done. Restart terminal or log out for key swap to fully apply."
-
+# keyboard.vusb.enable = "TRUE"
+# export MANPAGER="nvim +Man!"
